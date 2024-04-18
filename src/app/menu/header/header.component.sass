@@ -1,0 +1,31 @@
+.appbar
+    height: 50px
+    transition: 1s ease height
+    overflow: hidden
+        
+    button, span
+        transition: 1s ease opacity
+
+.appbar-hide
+    height: 0
+
+    button, span
+        opacity: 0
+
+.maximize
+    height: 0
+    
+    button, span
+        display: none
+        transition: 0.6s ease opacity
+        z-index: 999
+        float: right
+
+.activate-maximize
+
+    button, span
+        display: inline-block
+        opacity: 0
+
+    button:hover, span:hover
+        opacity: 100

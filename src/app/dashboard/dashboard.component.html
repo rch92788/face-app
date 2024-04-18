@@ -1,0 +1,8 @@
+<div class="dashboard row" *ngIf="isAuth">
+    <div class="col-sm-12 col-md-10">
+        <div class="grid-stack"></div>
+    </div>
+</div>
+<div class="unauthorized" *ngIf="!isAuth">
+    <span>You are not authorized to view this Dashboard</span>
+</div>

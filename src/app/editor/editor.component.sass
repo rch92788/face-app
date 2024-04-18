@@ -1,0 +1,85 @@
+.workspace
+    position: absolute
+    height: 100vh
+    width: 100vw
+    top: 0
+    left: 0
+    z-index: -1
+
+    .viewport
+        margin-top: 50px
+        height: calc(90vh - 50px - 20px)
+        background-color: #878787
+        display: flex
+        flex-direction: column
+        justify-content: center
+
+        .dashboard
+            margin: 0 auto
+            border-radius: 5px
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.35)
+
+            gridster
+                background-color: #EEE
+                // overflow: hidden
+
+
+
+.toolbar
+    height: 10vh
+    margin: 10px
+    display: flex
+    flex-direction: row
+    justify-content: center
+
+    button
+        margin: 0 10px
+        width: 12%
+        background-color: #FFF
+        padding: 0px
+
+        h3
+            margin: 0
+        
+
+.unauthorized
+    margin-top: 40vh
+    text-align: center
+
+
+gridster-item
+
+    .handle
+        visibility: hidden
+        position: absolute
+        font-size: 1em
+        height: unset
+        width: unset
+        line-height: unset
+        
+        .mat-icon
+            color: #ccc
+            font-size: 1em
+
+    .edit-handle
+        top: 0px
+        right: 0px
+
+    .delete-handle
+        top: 0px
+        left: 0px
+
+    &:hover .handle
+        visibility: visible
+
+#tooltip
+    position: absolute
+    top: 0
+    left: 0
+    background: #222
+    color: white
+    font-weight: bold
+    padding: 5px
+    border-radius: 4px
+    font-size: 90%
+    pointer-events: none

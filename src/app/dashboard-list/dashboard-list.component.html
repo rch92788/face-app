@@ -1,0 +1,21 @@
+<mat-grid-list [cols]="gridColumns" rowHeight="5:3" gutterSize="12px">
+    <a (click)="goToDashboard()" *ngFor="let dashboard of dashboards">
+        <mat-grid-tile class="dashboard-tile">
+            <div class="image">
+                <img [src]="(dashboard.imgsrc) ? dashboard.imgsrc : '/assets/placeholder-dashboard.png'"/>
+            </div>
+            <div class="details">
+                <div class="category-container">
+                    <div><h1>{{ dashboard.category }}</h1></div>
+                </div>
+                <div class="center">
+                    <span><strong>{{ dashboard.name }}</strong></span>
+                    <p>{{ dashboard.description }}</p>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </a>
+    <a (click)="createNew_clicked()">
+        <mat-grid-tile class="create-tile" title="Create New"><mat-icon>add</mat-icon><span>Create New</span></mat-grid-tile>
+    </a>
+</mat-grid-list>

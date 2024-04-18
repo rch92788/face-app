@@ -1,0 +1,88 @@
+.mat-grid-list
+    margin: 10px
+
+.dashboard-tile
+    transition: background-color 0.3s
+    border-radius: 0.6vw
+
+    .image
+        width: 100%
+        height: 100%
+        overflow: hidden
+
+        img
+            width: 100%
+            transition: .5s
+
+    .details
+        position: absolute
+        top: 0
+        left: 0
+        width: 70%
+        height: 100%
+        background: #80b3ff
+        transition: .5s
+        transform-origin: left
+        transform: perspective(2000px) rotateY(-90deg)
+
+        .category-container
+            display: flex
+            justify-content: center
+            flex-direction: row
+            height: 18%
+
+            div
+                display: flex
+                justify-content: center
+                flex-direction: column
+
+                h1
+                    margin: 0
+                    padding: 0
+                    color: #FFF
+                    font-size: 1em
+                    font-weight: 500
+                    text-transform: uppercase
+
+        .center
+            // padding: 20px
+            text-align: center
+            background: #fff
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            width: 100%
+            height: 65%
+
+            span
+                font-size: 1em
+                color: #262626
+
+            p
+                padding-top: 1em
+                font-size: 1em
+                color: #262626
+                line-height: 1.2em
+
+    &:hover
+        background-color: #999
+
+        .image
+            img
+                opacity: .5
+                // transform: translateX(30%)
+
+        .details
+            transform: perspective(2000px) rotateY(0deg)
+
+.create-tile
+    transition: background-color 0.3s
+    border-radius: 0.6vw
+    
+    &:hover
+        background-color: #DDD
+
+    ::ng-deep div
+        flex-direction: column
+
+    

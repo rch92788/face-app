@@ -1,0 +1,79 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    
+  <mat-card class="box">
+      <mat-card-header>
+          <mat-card-title>FACE - Register</mat-card-title>
+      </mat-card-header>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()" novalidate>
+          <mat-card-content>
+            <div class="multi-container">
+                <mat-form-field [ngClass]="'half'" appearance="fill">
+                    <mat-label>First Name</mat-label>
+                    <input matInput [formControl]="fcFirstName">
+                    <mat-error *ngIf="fcFirstName.hasError('required')">
+                        Please enter your First Name
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field [ngClass]="'half'" appearance="fill">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput [formControl]="fcLastName">
+                    <mat-error *ngIf="fcLastName.hasError('required')">
+                        Please enter your Last Name
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="full-container">
+                <mat-form-field [ngClass]="'full'" appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" name="email" id="email" [formControl]="fcEmail" placeholder="Ex. john.doe@abbott.com">
+                    <mat-error *ngIf="fcEmail.hasError('email') && !fcEmail.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="fcEmail.hasError('required')">
+                        Email is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="multi-container">
+                <mat-form-field [ngClass]="'full'" appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" [formControl]="fcPassword">
+                    <mat-error *ngIf="fcPassword.hasError('password')">
+                        Please enter a password
+                    </mat-error>
+                    <mat-error *ngIf="fcPassword.hasError('minlength')">
+                        Password must be a minimum of 8 characters
+                    </mat-error>
+                    <mat-error *ngIf="fcPassword.hasError('required')">
+                        Password is required
+                    </mat-error>
+                    
+                </mat-form-field>
+                <mat-form-field [ngClass]="'full'" appearance="fill">
+                    <mat-label>Verify Password</mat-label>
+                    <input matInput type="password" [formControl]="fcPasswordVerify">
+                    <mat-error *ngIf="fcPasswordVerify.hasError('required')">
+                        Please verify the password
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-error *ngIf="registerForm.hasError('notSame')">
+                    The passwords do NOT match
+                </mat-error>
+            </div>
+
+          </mat-card-content>
+
+          <button mat-stroked-button type="submit" color="primary" class="btn-block" [disabled]="registerForm.invalid">Register</button>
+          <div *ngIf="postFail">
+            <br/>
+            <mat-error>
+                {{ this.postError }}
+            </mat-error>
+          </div>
+          
+      </form>
+  </mat-card>
+
+</div>

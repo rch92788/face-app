@@ -1,0 +1,16 @@
+<mat-drawer-container class="drawer-container">
+    <mat-drawer #drawer mode="over">
+        <mat-nav-list>
+            <div class="closeButton">
+                <button mat-list-item (click)="clickClose()"><mat-icon>arrow_back</mat-icon></button>
+            </div>
+            <button mat-list-item *ngFor="let link of links" (click)="linkClicked(link.route)"> {{ link.label }} </button>
+         </mat-nav-list>
+    </mat-drawer>
+    
+    <div class="page-container">
+        <menu-header></menu-header>
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-drawer-container>

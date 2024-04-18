@@ -1,0 +1,49 @@
+<div *ngIf="isAuth" class="workspace">
+    <div class="viewport">
+        <div class="dashboard" [ngStyle]="{'width.px': dashboardWidth, 'height.px': dashboardHeight}">
+            <gridster [options]="options">
+                <gridster-item [item]="item" *ngFor="let item of dashboard">
+                    <dynamic-widget
+                        [widget]="item"
+                        [resizeEvent]="resizeEvent"
+                    ></dynamic-widget>
+                    <button class="handle delete-handle" (mousedown)="$event.stopPropagation()" (click)="deleteClicked($event, item)" mat-icon-button>
+                        <mat-icon>close</mat-icon>
+                    </button>
+                    <button mat-icon-button class="handle edit-handle" [matMenuTriggerFor]="menu">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openConnectModal(item)">
+                          <mat-icon>insights</mat-icon>
+                          <span>Connect</span>
+                        </button>
+                        <button mat-menu-item [matMenuTriggerFor]="edit_widget">
+                          <mat-icon>title</mat-icon>
+                          <span>Edit Widget</span>
+                        </button>
+                    </mat-menu>
+                    <mat-menu #edit_widget="matMenu">
+                        <button mat-menu-item>
+                          <mat-icon>format_size</mat-icon>
+                          <span>Change Title</span>
+                        </button>
+                        <button mat-menu-item>
+                          <mat-icon>palette</mat-icon>
+                          <span>Change Colors</span>
+                        </button>
+                    </mat-menu>
+                </gridster-item>
+            </gridster>
+        </div>
+    </div>
+    <div class="toolbar">
+        <button mat-raised-button class="widgetOption" (click)="createWidget(widget.type, widget.displayName)" *ngFor="let widget of widgetTypes" [title]="widget.tooltip">
+            <mat-icon *ngIf="widget.icon">{{ widget.icon }}</mat-icon>
+            <h3>{{ widget.displayName }}</h3>
+        </button>
+    </div>
+</div>
+<div class="unauthorized" *ngIf="!isAuth">
+    <span>You are not authorized to use this Editor</span>
+</div>

@@ -1,0 +1,18 @@
+<mat-toolbar class="appbar" [class.appbar-hide]="hideAppBar" color="primary" #appBar>
+    <button mat-icon-button>
+        <mat-icon (click)="toggleMenuDrawer()">menu</mat-icon>
+    </button>
+    <span>Program Launch - FACE</span>
+    <span class="spacer"></span>
+    <button *ngIf="this.currentUser" mat-button>{{ this.currentUser.lastName + ', ' + this.currentUser.firstName }}</button>
+    <button mat-button (click)="loginClicked()">{{ this.loginButton_Text }}</button>
+    <button mat-icon-button (click)="toggleAppBarHide()">
+        <mat-icon>fullscreen</mat-icon>
+    </button>
+</mat-toolbar>
+<div class="maximize" [class.activate-maximize]="hideAppBar">
+    <span class="spacer"></span>
+    <button mat-icon-button class="maximize" (click)="toggleAppBarHide()">
+        <mat-icon>fullscreen_exit</mat-icon>
+    </button>
+</div>

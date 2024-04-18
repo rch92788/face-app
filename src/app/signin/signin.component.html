@@ -1,0 +1,56 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>FACE - Sign In</mat-card-title>
+        </mat-card-header>
+  
+        <form [formGroup]="signinForm" (ngSubmit)="onSigninSubmit()" novalidate>
+            <mat-card-content>
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" name="email" id="email" [formControl]="fcEmail" placeholder="Ex. bob@abbott.com">
+                    <mat-error *ngIf="fcEmail.hasError('email') && !fcEmail.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="fcEmail.hasError('required')">
+                        Email is required
+                    </mat-error>
+                </mat-form-field>
+
+                <br/><br/>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" [formControl]="fcPassword">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-highlight]="false" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="fcPassword.hasError('password') && !fcPassword.hasError('required')">
+                        Please enter a password
+                    </mat-error>
+                    <mat-error *ngIf="fcPassword.hasError('required')">
+                        Password is required
+                    </mat-error>
+                    
+                 </mat-form-field>
+
+            </mat-card-content>
+
+            <button mat-stroked-button type="submit" color="primary" class="btn-block" [disabled]="signinForm.invalid">Sign-in</button>
+            <div *ngIf="postFail">
+                <br/>
+                <mat-error>
+                    {{ this.postError }}
+                </mat-error>
+            </div>
+
+        </form>
+
+        <div style="display:flex">
+            <div class="spacer"></div>
+            <button (click)="goToRegister()" mat-button>Register</button>
+        </div>
+    </mat-card>
+  
+  </div>

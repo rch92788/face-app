@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>{{data.widgetName}} - Connection</h1>
+<div mat-dialog-content>
+  <div class="location-options">
+    <mat-form-field appearance="fill">
+      <mat-label>Environment</mat-label>
+      <mat-select>
+        <mat-option value="production">Production</mat-option>
+        <mat-option value="stage">Stage</mat-option>
+        <mat-option value="development">Development</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Site</mat-label>
+      <mat-select>
+        <mat-option value="caguas">Caguas</mat-option>
+        <mat-option value="costa rica">Costa Rica</mat-option>
+        <mat-option value="irvine">Irvine</mat-option>
+        <mat-option value="sylmar">Sylmar</mat-option>
+        <mat-option value="plano">Plano</mat-option>
+        <mat-option value="plymouth">Plymouth</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>Dataset</mat-label>
+    <mat-select>
+      <mat-option value="Flow Rate per Operation">Flow Rate per Operation</mat-option>
+      <mat-option value="Total Completed Units">Total Completed Units</mat-option>
+      <mat-option value="Top 10 Disposition Reasons">Top 10 Disposition Reasons</mat-option>
+      <mat-option value="Deferred Part Assemblies">Deferred Part Assemblies</mat-option>
+      <mat-option value="Qty Scrapped per Operation">Qty Scrapped per Operation</mat-option>
+      <mat-option value="Shift Completions by Route">Shift Completions by Route</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  <button mat-button (click)="onCancel()">Cancel</button>
+</div>

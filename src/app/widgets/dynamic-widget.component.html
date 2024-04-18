@@ -1,0 +1,30 @@
+<bar-graph
+  *ngIf="widget.type === 'bar-graph'"
+  [resizeEvent]="resizeEvent"
+  [widget]="widget"
+></bar-graph>
+<line-chart
+  [widget]="widget"
+  [resizeEvent]="resizeEvent"
+  *ngIf="widget.type === 'line-chart'"
+></line-chart>
+<pie-chart
+  [widget]="widget"
+  [resizeEvent]="resizeEvent"
+  *ngIf="widget.type === 'pie-chart'"
+></pie-chart>
+<grid-table
+  [widget]="widget"
+  [resizeEvent]="resizeEvent"
+  *ngIf="widget.type === 'grid-table'"
+></grid-table>
+<gauge
+  [widget]="widget"
+  [resizeEvent]="resizeEvent"
+  *ngIf="widget.type === 'gauge'"
+></gauge>
+<grid-spacer
+  [widget]="widget"
+  [resizeEvent]="resizeEvent"
+  *ngIf="widget.type === 'grid-spacer'"
+></grid-spacer>
